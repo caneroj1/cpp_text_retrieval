@@ -13,22 +13,38 @@
 #include "intersect.h"
 #include "rank_vector.hpp"
 #include "rank_query.hpp"
+#include <ctime>
+#include "inverted_index.hpp"
 
 using namespace std;
 
 int main(int argc, const char * argv[]) {
     cout << "Initializing Documents" << endl;
+    clock_t docStart = clock();
     
     DocumentCollection collection;
     string basePath = argv[1];
+    
     collection.add_new_doc(Document::create_and_read(basePath + "doc1"));
     collection.add_new_doc(Document::create_and_read(basePath + "doc2"));
     collection.add_new_doc(Document::create_and_read(basePath + "doc3"));
     collection.add_new_doc(Document::create_and_read(basePath + "doc4"));
     
+    cout << "took " << (( clock() - docStart ) / (double) CLOCKS_PER_SEC) << " secs" << endl;
+    
     cout << "Computing Document Frequencies" << endl;
+    clock_t colStart = clock();
     
     collection.compute_freqs();
+    
+    cout << "took " << (( clock() - colStart ) / (double) CLOCKS_PER_SEC) << " secs" << endl;
+    
+    cout << "Building Inverted Index" << endl;
+    clock_t idxStart = clock();
+    
+    InvertedIndex invertedIndex(collection);
+    
+    cout << "took " << (( clock() - idxStart ) / (double) CLOCKS_PER_SEC) << " secs" << endl;
     
     cout << "---------- Start Text Retrieval ----------\n\n";
     
@@ -38,12 +54,11 @@ int main(int argc, const char * argv[]) {
         getline(cin, query);
         
         Query q(query);
+        
         q.tokenize();
         q.compute_freqs();
-        // get intersections
-        Intersections intersections = Intersect::get_intersection(q, collection);
-        
-        RankQuery rq(intersections, q, collection);
+
+        RankQuery rq(invertedIndex, q, collection);
         rq.compute_ranking();
         
         const vector<RankVector> rankings = rq.get_rank_vectors();

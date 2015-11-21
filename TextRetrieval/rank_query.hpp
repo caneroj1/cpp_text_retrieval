@@ -15,15 +15,16 @@
 #include "query.hpp"
 #include "bm25.hpp"
 #include "document_collection.hpp"
+#include "inverted_index.hpp"
 
-typedef vector<vector<string>> Intersections;
+//typedef vector<vector<string>> Intersections;
 
 using namespace std;
 
 class RankQuery {
 public:
-    RankQuery(const Intersections& inters, Query query, DocumentCollection& collection)
-    : m_Intersections(inters)
+    RankQuery(const InvertedIndex& index, Query query, DocumentCollection& collection)
+    : m_InvertedIndex(index)
     , m_Collection(collection)
     , m_Query(query) { }
     
@@ -34,7 +35,7 @@ public:
     
 private:
     DocumentCollection m_Collection;
-    const Intersections m_Intersections;
+    const InvertedIndex m_InvertedIndex;
     vector<RankVector> m_RankVectors;
     const Query m_Query;
 };

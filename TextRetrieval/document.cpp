@@ -16,8 +16,10 @@ void Document::read_document() {
     while(getline(f, line)) {
         stringstream ss(line);
         string token;
-        while (getline(ss, token, ' '))
+        while (getline(ss, token, ' ')) {
+            if (lowercase(token) == "hitler") cout << "found hitler" << endl;
             m_Words.push_back(lowercase(token));
+        }
     }
 }
 

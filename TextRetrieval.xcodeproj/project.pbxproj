@@ -26,6 +26,8 @@
 		2EBD40791BF9274000DFFF9A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EBD40781BF9274000DFFF9A /* main.cpp */; };
 		2EBD407D1BF9281700DFFF9A /* document.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EBC54F21BF7B84E0084EF52 /* document.cpp */; };
 		2EBD407F1BF9287B00DFFF9A /* test_document.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EBD407E1BF9287B00DFFF9A /* test_document.cpp */; };
+		2EE4D2151C0016C800081F1F /* inverted_index.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EE4D2131C0016C800081F1F /* inverted_index.cpp */; };
+		2EE4D2161C0016C800081F1F /* inverted_index.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EE4D2131C0016C800081F1F /* inverted_index.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -74,6 +76,9 @@
 		2EBD40781BF9274000DFFF9A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2EBD407E1BF9287B00DFFF9A /* test_document.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_document.cpp; sourceTree = "<group>"; };
 		2EBD40801BF92ACF00DFFF9A /* test_document.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_document.txt; sourceTree = "<group>"; };
+		2EE4D2131C0016C800081F1F /* inverted_index.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = inverted_index.cpp; sourceTree = "<group>"; };
+		2EE4D2141C0016C800081F1F /* inverted_index.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = inverted_index.hpp; sourceTree = "<group>"; };
+		2EE4D2181C0017EB00081F1F /* index_object.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = index_object.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +151,7 @@
 		2EBC54E81BF7B6230084EF52 /* TextRetrieval */ = {
 			isa = PBXGroup;
 			children = (
+				2EE4D2121C0016B000081F1F /* Inverted Index */,
 				2E0E6FC41BF9641400395F3B /* Ranking */,
 				2E0E6FBF1BF95B8B00395F3B /* Utility */,
 				2E0E6FB61BF9506900395F3B /* Query */,
@@ -178,6 +184,16 @@
 				2E0E6FCD1BF96AAD00395F3B /* test_rank_vector.cpp */,
 			);
 			path = TestTextRetrieval;
+			sourceTree = "<group>";
+		};
+		2EE4D2121C0016B000081F1F /* Inverted Index */ = {
+			isa = PBXGroup;
+			children = (
+				2EE4D2131C0016C800081F1F /* inverted_index.cpp */,
+				2EE4D2141C0016C800081F1F /* inverted_index.hpp */,
+				2EE4D2181C0017EB00081F1F /* index_object.hpp */,
+			);
+			name = "Inverted Index";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +280,7 @@
 				2E0E6FCB1BF9670800395F3B /* intersect.cpp in Sources */,
 				2EBC54EA1BF7B6230084EF52 /* main.cpp in Sources */,
 				2E0E6FC11BF95B9800395F3B /* bm25.hpp in Sources */,
+				2EE4D2151C0016C800081F1F /* inverted_index.cpp in Sources */,
 				2E0E6FAF1BF9476B00395F3B /* document_collection.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +296,7 @@
 				2E0E6FB21BF94B1D00395F3B /* test_document_collection.cpp in Sources */,
 				2E0E6FC21BF95B9800395F3B /* bm25.hpp in Sources */,
 				2E0E6FB01BF9476B00395F3B /* document_collection.cpp in Sources */,
+				2EE4D2161C0016C800081F1F /* inverted_index.cpp in Sources */,
 				2E0E6FC81BF9642500395F3B /* rank_vector.cpp in Sources */,
 				2E0E6FCE1BF96AAD00395F3B /* test_rank_vector.cpp in Sources */,
 				2EBD40791BF9274000DFFF9A /* main.cpp in Sources */,
