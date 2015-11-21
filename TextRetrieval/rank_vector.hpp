@@ -36,13 +36,13 @@ public:
     void set_ranking(double r) { m_Ranking = r; }
     double get_ranking() const { return m_Ranking; }
     
-    void set_doc_id(int id) { m_DocID = id; }
+    void set_doc_id(size_t id) { m_DocID = id; }
     int get_doc_id() const { return m_DocID; }
     
 private:
     vector<double> m_RankVector;
     double m_Ranking;
-    int m_DocID;
+    size_t m_DocID;
 };
 
 #endif /* rank_vector_hpp */
